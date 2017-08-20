@@ -1,7 +1,5 @@
 <?php
 
-include 'Product.php';
-
 class Clothes extends Product
 {
 
@@ -19,10 +17,3 @@ class Clothes extends Product
         parent::__construct($name, $price, $description, $size, $type, $material);
     }
 }
-
-$dress = new Clothes('Dress',
-                    '1000',
-                    'Nice summer dress',
-                    'S',
-                    'dress',
-                    'Cotton');

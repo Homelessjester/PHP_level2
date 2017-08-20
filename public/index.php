@@ -2,24 +2,32 @@
 
 include_once '../data/defines.php';
 
-class A {
-    public function foo() {
-        static $x = 0;
-        echo ++$x;
-    }
-}
-/*$a1 = new A();
-$a2 = new A();
-$a1->foo(); //Т.к. переменная $x объявленна статической, она принадлежит классу, а не созданному объекту.
-$a2->foo(); //При каждом вызове метода foo() значение $x увеличивается на 1 и выводится на экран.
-$a1->foo(); //В итоге последовательно будут выводится числа от 1 до 4, и дальше при каждом вызове метода
-$a2->foo(); //*/
+spl_autoload_register(function ($class_name){
+    include_once (str_replace('/', '\\', MODEL_DIR . '\\' . $class_name . '.php'));
+});
 
-class B extends A {
-}
-$a1 = new A();
-$b1 = new B();
-$a1->foo();//В данном примере у классов А и В имеются свои статические переменные $x, каждая из которых увеличивается
-$b1->foo();//на 1 независимо от другой
-$a1->foo();//
-$b1->foo();//
+
+$dress = new Clothes('Dress',
+    '1000',
+    'Nice summer dress',
+    'S',
+    'dress',
+    'Cotton');
+
+
+$shoes = new Footwear('Shoes',
+    '5000',
+    'Stylish business shoes',
+    '41',
+    'shoes',
+    'Leather');
+
+
+$cap = new Footwear('Cap',
+    '300',
+    'Fashionable youth cap',
+    '58',
+    'caps',
+    'Synthetics');
+
+echo $cap->getDescription();

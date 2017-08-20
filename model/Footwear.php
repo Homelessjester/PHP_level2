@@ -1,7 +1,5 @@
 <?php
 
-include 'Product.php';
-
 class Footwear extends Product
 {
     /**
@@ -18,10 +16,3 @@ class Footwear extends Product
         parent::__construct($name, $price, $description, $size, $type, $material);
     }
 }
-
-$shoes = new Footwear('Shoes',
-                    '5000',
-                    'Stylish business shoes',
-                    '41',
-                    'shoes',
-                    'Leather');
