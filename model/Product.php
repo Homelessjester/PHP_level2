@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP_level2\model;
+
 /**
  * Class Product
  */
@@ -10,34 +12,27 @@ abstract class Product
 
     private $price;
 
-    private $description;
-
-    private $size;
-
-    private $type;
-
-    private $material;
+    private $quantity;
 
     /**
      * Product constructor.
      * @param $name
      * @param $price
-     * @param $description
-     * @param $size
-     * @param $type
-     * @param $material
+     * @param $quantity
      */
-    public function __construct($name, $price, $description, $size, $type, $material)
+    public function __construct($name, $price, $quantity)
     {
         $this->name = $name;
         $this->price = $price;
-        $this->description = $description;
-        $this->size = $size;
-        $this->type = $type;
-        $this->material = $material;
+        $this->quantity = $quantity;
     }
 
-    //Getters and setters section
+    /**
+     * @param $price
+     * @param $quantity
+     * @return float
+     */
+    abstract public function cost_calculation($price, $quantity) :float;
 
     /**
      * @return mixed
@@ -74,65 +69,17 @@ abstract class Product
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getQuantity()
     {
-        return $this->description;
+        return $this->quantity;
     }
 
     /**
-     * @param mixed $description
+     * @param mixed $quantity
      */
-    public function setDescription($description)
+    public function setQuantity($quantity)
     {
-        $this->description = $description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * @param mixed $size
-     */
-    public function setSize($size)
-    {
-        $this->size = $size;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMaterial()
-    {
-        return $this->material;
-    }
-
-    /**
-     * @param mixed $material
-     */
-    public function setMaterial($material)
-    {
-        $this->material = $material;
+        $this->quantity = $quantity;
     }
 
 }
