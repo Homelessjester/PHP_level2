@@ -7,32 +7,43 @@ namespace PHP_level2\model;
  */
 abstract class Product
 {
+    /**
+     * Базовая цена
+     */
+    private const BASIC_PRICE = 50;
 
     private $name;
-
-    private $price;
 
     private $quantity;
 
     /**
      * Product constructor.
-     * @param $name
-     * @param $price
-     * @param $quantity
+     * @param $name string
+     * @param $quantity float
      */
-    public function __construct($name, $price, $quantity)
+    public function __construct(string $name , float $quantity)
     {
         $this->name = $name;
-        $this->price = $price;
         $this->quantity = $quantity;
     }
 
     /**
-     * @param $price
-     * @param $quantity
      * @return float
      */
-    abstract public function cost_calculation($price, $quantity) :float;
+    abstract public function cost_calculation() :float;
+
+    /**
+     * @return float
+     */
+    abstract static public function get_final_income() :float;
+
+    /**
+     * @return int
+     */
+    public function getPrice()
+    {
+        return self::BASIC_PRICE;
+    }
 
     /**
      * @return mixed
@@ -48,22 +59,6 @@ abstract class Product
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param mixed $price
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
     }
 
     /**
