@@ -20,6 +20,6 @@ if(!defined('TEMPLATE_DIR')){
 }
 
 if(!defined('IMAGES_DIR')){
-    define('IMAGES_DIR', __DIR__ . 'img');
+    define('IMAGES_DIR', __DIR__ . '\img');
 }
 

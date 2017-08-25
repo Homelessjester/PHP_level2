@@ -8,6 +8,14 @@
     <title>Template</title>
 </head>
 <body>
-<p>Hello, {{ name }}</p>
+<div class="main_container">
+    {% for file in files  %}
+        <div>
+            <a href="{{ file.path }}" target="_blank">
+                <img src="{{ file.thumb }}" alt="Image">
+            </a>
+        </div>
+    {% endfor %}
+</div>
 </body>
 </html>

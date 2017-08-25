@@ -8,7 +8,7 @@ spl_autoload_register(function ($class_name){
         MODEL_DIR . '\\' . strrchr($class_name, '\\') . '.php'));
 });
 
-use \PHP_level2\model as Model;
+/*use \PHP_level2\model as Model;
 
 //Создаем два экземпляра штучного товара
 $good = new Model\Piece_Product('Good',  2);
@@ -32,4 +32,4 @@ foreach ($obj_array as $value) {
     echo '<p>Стоимость: ' . $value->cost_calculation() .'</p>';
     echo '<p>Доход группы товаров: ' . $value::get_final_income() .'</p>';
     echo '<hr>';
-}
+}*/
