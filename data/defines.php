@@ -23,3 +23,7 @@ if(!defined('IMAGES_DIR')){
     define('IMAGES_DIR', __DIR__ . '\img');
 }
 
+if(!defined('CONTROLLER_DIR')){
+    define('CONTROLLER_DIR', __DIR__ . '\..\controller');
+}
+

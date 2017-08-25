@@ -3,13 +3,12 @@
 include_once '../data/defines.php';
 
 spl_autoload_register(function ($class_name){
-    //Для Windows 7 и ниже
     include_once (str_replace('/\\', DIRECTORY_SEPARATOR,
         MODEL_DIR . '\\' . strrchr($class_name, '\\') . '.php'));
 });
 
-/*use \PHP_level2\model as Model;
-
+/*ДЗ ко 2-му уроку
+ * use \PHP_level2\model as Model;
 //Создаем два экземпляра штучного товара
 $good = new Model\Piece_Product('Good',  2);
 $good2 = new Model\Piece_Product('Second Good',  3);
@@ -33,3 +32,5 @@ foreach ($obj_array as $value) {
     echo '<p>Доход группы товаров: ' . $value::get_final_income() .'</p>';
     echo '<hr>';
 }*/
+
+require CONTROLLER_DIR . '\something.php';

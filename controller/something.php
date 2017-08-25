@@ -52,7 +52,7 @@ if (!is_array($files)) {
 }
 
 try {
-    $loader = new Twig_Loader_Filesystem('./templates');
+    $loader = new Twig_Loader_Filesystem(TEMPLATE_DIR);
     $twig = new Twig_Environment($loader,
         ['charset'=>'UTF-8']);
 
