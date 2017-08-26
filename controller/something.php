@@ -1,5 +1,4 @@
 <?php
-require_once '../vendor/autoload.php';
 require_once '../data/defines.php';
 
 /**
@@ -25,6 +24,10 @@ function get_images_from_directory($image_dir){
             }
         }
 
+        if (empty($files)){
+            throw new Exception('Файлы отсутствуют');
+        }
+
         $dir->close();
 
         $result = $files;
@@ -38,27 +41,4 @@ function get_images_from_directory($image_dir){
         return $result;
 
     }
-}
-
-$files = get_images_from_directory('images');
-
-/*echo '<pre>';
-var_dump($files);
-echo '</pre>';
-die;*/
-
-if (!is_array($files)) {
-    die('Error: ' . $files);
-}
-
-try {
-    $loader = new Twig_Loader_Filesystem(TEMPLATE_DIR);
-    $twig = new Twig_Environment($loader,
-        ['charset'=>'UTF-8']);
-
-    $template = $twig->load('index.tmpl');
-
-    echo $template->render(['files'=>$files]);
-} catch (Exception $exception){
-    die('Error: ' . $exception->getMessage());
 }
